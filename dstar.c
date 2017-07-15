@@ -177,6 +177,7 @@ void Gamekeys(void)
 		  #ifdef SOUND
 		    bit_fx4 (5);
 		  #endif
+		  FlashPiece(PieceIsBox ? &BoxOffset : &BallOffset);
 		  while (getk() == K_SWITCH) {}
 		  break;
 		case K_EXIT:
@@ -314,6 +315,22 @@ void putpicHalf(int x, int y, int picture) {
 	}
 }
 
+void FlashPiece(char *ptr)
+{
+	int i,x,y,p;
+
+	y = (*(ptr) / 16);
+	x = (*(ptr) - (y * 16));
+	p = PieceIsBox ? 4 : 3;
+
+	for(i = 0; i != 3; ++i) {
+		putpic (x,y,0);
+		busyDelay(10);
+		putpic (x,y,p);
+		busyDelay(10);
+	}
+}
+
 void MovePiece(char *ptr, char plusx, char plusy)
 {
 	char *locn;
@@ -376,7 +393,6 @@ void MovePiece(char *ptr, char plusx, char plusy)
 	}
 }
 
-// Sorcerer Exidy text resolution is 64x30
 void putpic(int x, int y, int picture) {
 	putpicHalf(x<<1, y<<1, picture);
 }

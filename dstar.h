@@ -10,6 +10,7 @@ char CheckNotFinished(void);
 void SetupLevel(void);
 void DrawBoard(void);
 void Gamekeys(void);
+void FlashPiece(char *ptr);
 
 char BallOffset;        /* Ball position */
 char BoxOffset;         /* Box position */
