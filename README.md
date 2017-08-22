@@ -14,3 +14,11 @@ installing z88dk
     chmod 777 build.sh
     ./build.sh
 
+You may need to tap return a few times if the build stalls!
+
+Now update your environment to use the tools:
+    vi ~/.bash_profile
+
+Add the following to the end of the file:
+    export PATH=${PATH}:${HOME}/z88dk/bin
+    export ZCCCFG=${HOME}/z88dk/lib/config
