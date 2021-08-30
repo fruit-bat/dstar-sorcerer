@@ -302,10 +302,10 @@ void putpicHalf(int x, int y, int picture) {
 
 	yt = y<<6;
 	if (picture == 0) {
-		display[yt+PIC_START+x]=192;
-		display[yt+PIC_START+x+1]=192;
-		display[yt+PIC_START+64+x]=192;
-		display[yt+PIC_START+64+x+1]=192;
+		display[yt+PIC_START+x]=32;
+		display[yt+PIC_START+x+1]=32;
+		display[yt+PIC_START+64+x]=32;
+		display[yt+PIC_START+64+x+1]=32;
 	} else {
 		pt = picture<<2;
 		display[yt+PIC_START+x]=193+pt-4;
